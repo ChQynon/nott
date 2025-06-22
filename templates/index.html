@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOTT - Real-time Object Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Full-screen video background -->
+        <div class="video-container">
+            <video id="webcam" autoplay playsinline></video>
+            <canvas id="output"></canvas>
+        </div>
+
+        <!-- Floating header with logo -->
+        <header class="app-header">
+            <div class="logo">
+                <span class="logo-text">NOTT</span>
+            </div>
+            <div id="model-status" class="status-badge">Loading model...</div>
+        </header>
+
+        <!-- Floating controls -->
+        <div class="floating-controls">
+            <button id="startBtn" class="control-btn" disabled>
+                <i class="fas fa-play"></i>
+            </button>
+            <button id="flipBtn" class="control-btn" disabled>
+                <i class="fas fa-sync-alt"></i>
+            </button>
+            <button id="fullscreenBtn" class="control-btn">
+                <i class="fas fa-expand"></i>
+            </button>
+            <button id="stopBtn" class="control-btn" disabled>
+                <i class="fas fa-stop"></i>
+            </button>
+        </div>
+
+        <!-- Detection panel -->
+        <div class="detection-panel">
+            <div class="panel-header">
+                <h3>Detected Objects</h3>
+                <div id="fps">0 FPS</div>
+            </div>
+            <div id="detection-list" class="detection-items"></div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html> 
